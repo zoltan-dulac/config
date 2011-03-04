@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=iso-8859-1">
+        <link href="css/global.css" type="text/css" rel=
+        "stylesheet" media="all">
+
+        <title>Config test</title>
+
+        <title></title>
+<script type="text/javascript" src="js/EventHelpers.js">
+</script>
+<script type="text/javascript" src="js/config.js">
+</script>
+<script type="text/javascript" src="js/formValidator.js">
+</script>
+    </head>
+
+    <body>
+        <h1>Config.js example: Form Validation</h1>
+
+        <p>This page is designed to show how to use the config.js
+        library to create a simple form validation system. You can
+        <a href=
+        "/viewsource.cgi/tests/config/js/formValidator.js">take a
+        look at the script</a> to see how it works, and <a href=
+        "/viewsource.cgi/tests/config/creditCardForm.html">view the
+        source of this document</a> to see the configuration XML
+        that it uses at the end of the page. There is also <a href=
+        "creditCardFormOutsideConfig.html">a version of this page
+        that uses an external XML file.</a></p>
+
+        <div id="xmlBlock">
+        </div>
+
+        <p><strong>Note:</strong> do <em>not</em> put it in a real
+        credit card number in to this form.</p>
+
+        <div id="messages">
+        </div>
+
+        <form id="creditCardForm">
+            <fieldset>
+                <legend>Mailing Information</legend> 
+
+                <table class="formTable">
+                    <tbody>
+                        <tr>
+                            <th>Name :</th>
+
+                            <td><input type="text" name=
+                            "name"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Address :</th>
+
+                            <td><input type="text" name=
+                            "address"></td>
+                        </tr>
+
+                        <tr>
+                            <th>City :</th>
+
+                            <td><input type="text" name=
+                            "city"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Province :</th>
+
+                            <td><select name="province">
+                                <option value="">
+                                    Choose one...
+                                </option>
+
+                                <option value="ON">
+                                    Ontario
+                                </option>
+                            </select> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Postal Code :</th>
+
+                            <td><input type="text" name=
+                            "postalCode"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Billing Information</legend> 
+
+                <table class="formTable">
+                    <tbody>
+                        <tr>
+                            <th>Credit Card Type :</th>
+
+                            <td><select name="ccType">
+                                <option value="">
+                                    Select one ...
+                                </option>
+
+                                <option value="Visa">
+                                    VISA
+                                </option>
+                            </select> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Credit Card Number :</th>
+
+                            <td>
+                                <input type="text" name="ccNum"> 
+
+                                <div class="fieldDescription">
+                                    <strong>Note:</strong> Do not
+                                    put in your real credit card
+                                    number. This is
+                                    <strong>just</strong> an
+                                    example. Please put in any 16
+                                    digit number.
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Credit Card Expiry :</th>
+
+                            <td><input type="text" name=
+                            "ccExp"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <div class="buttonRow">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+		
+		<div id="config">
+		<!--
+		<config>
+			<formValidator>
+			
+				<%-- This section contains english text that will be        --%>
+				<%-- inserted into the page.                                --%>
+				<templates>
+				
+					<%-- This error appears when the information submitted  --%>
+					<%-- is not in the right format.                        --%>
+					<hasError><![CDATA[
+						<div id="errorMessage">
+						<p>There are errors with the information you are trying 
+						to submit.  Please check the form below, correct the
+						errors and resubmit.</p>
+						</div>
+					]]></hasError>
+					
+					<%-- This text appears in an alert box when the form is --%> 
+					<%-- submitted successfully.                            --%>
+					<submissionAlert removeMultispaces="true">
+					If this was a real form, the information above would 
+					have been submitted.  Since this isn't, we won't submit
+					any of the form information, including the @ccType@ Credit Card number
+					@ccNum@.</submissionAlert>
+				</templates>
+				
+				<errors>
+				
+					<%-- This error appears below a form field when the     --%>
+					<%-- information is blank and the form is submitted.    --%>  
+					<mandatoryField>
+						The above field is mandatory
+					</mandatoryField>
+				</errors>
+				
+				<%-- This section describes validation information.  For    --%>
+				<%-- each object inside "inputs" can have three possible    --%>
+				<%-- properties:                                            --%>
+				<%--   1)  isMandatory: set to true if the field is         --%>
+				<%--                    mandatory                           --%>
+				<%--   2)      pattern: the regex that this form field must --%>
+				<%--                    match.                              --%>
+				<%--   3) unmatchError: The error that appears below the    --%>
+				<%--                    form field if it doesn't match the  --%>
+				<%--                    regex.                              --%>
+				
+				<creditCardForm>
+					<inputs datatype="array">
+						<name>
+							<isMandatory>true</isMandatory>
+						</name>
+						<address>
+							<isMandatory>true</isMandatory>
+						</address>
+						<city>
+							<isMandatory>true</isMandatory>
+						</city>
+						<province>
+							<isMandatory>true</isMandatory>
+						</province>
+						<postalCode>
+							<isMandatory>true</isMandatory>
+							
+							<%-- Note: We assume Canadian postal codes only --%>
+							<pattern>^[a-zA-Z]\d[a-zA-Z]\s*\d[a-zA-Z]\d$</pattern>
+							<unmatchError>The postal code must be in a valid format.</unmatchError>
+						</postalCode>
+						
+						<%-- Credit card information --%>
+						<ccType>
+							<isMandatory>true</isMandatory>
+						</ccType>
+						<ccNum>
+							<isMandatory>true</isMandatory>
+							
+							<%-- *******************************************************************
+							     a much better pattern for credit cards is described at 
+								 http://www.regular-expressions.info/creditcard.html 
+								 
+								 I don't use it here because I don't want to encourage
+								 people putting in their real credit cards in this
+								 test. :-)
+							     ******************************************************************--%>
+							<pattern>^\d{16}$</pattern>
+							<unmatchError>The credit card you entered is not valid.</unmatchError>
+						</ccNum>
+						<ccExp>
+							<isMandatory>true</isMandatory>
+							<pattern>^(0[1-9]|1[1-2])/\d{2}$</pattern>
+							<unmatchError>The expiry date must be in the form yy/mm.</unmatchError>
+						</ccExp>
+					</inputs>
+				</creditCardForm>
+			</formValidator>
+		</config>
+		-->
+		
+		</div>
+    </body>
+</html>
+

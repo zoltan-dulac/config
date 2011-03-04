@@ -1,0 +1,77 @@
+
+<config>
+			<formValidator>
+			
+				<!-- This section contains english text that will be inserted into the page -->
+				<templates>
+					<hasError><![CDATA[
+						<div id="errorMessage">
+						<p>There are errors with the information you are trying 
+						to submit.  Please check the form below, correct the
+						errors and resubmit.</p>
+						</div>
+					]]></hasError>
+					
+					<submissionAlert removeMultispaces="true">
+					If this was a real form, the information above would 
+					have been submitted.  Since this isn't, we won't submit
+					any of the form information, including the @ccType@ Credit Card number
+					@ccNum@.</submissionAlert>
+				</templates>
+				<errors>
+					<mandatoryField>
+						The above field is mandatory
+					</mandatoryField>
+				</errors>
+				
+				<!-- This section describes validation information -->
+				<creditCardForm>
+					<inputs datatype="array">
+						<name>
+							<isMandatory>true</isMandatory>
+						</name>
+						<address>
+							<isMandatory>true</isMandatory>
+						</address>
+						<city>
+							<isMandatory>true</isMandatory>
+						</city>
+						<province>
+							<isMandatory>true</isMandatory>
+						</province>
+						<postalCode>
+							<isMandatory>true</isMandatory>
+							
+							<!-- Note: We assume Canadian postal codes only -->
+							<pattern>^[a-zA-Z]\d[a-zA-Z]\s*\d[a-zA-Z]\d$</pattern>
+							<unmatchError>The postal code must be in a valid format.</unmatchError>
+						</postalCode>
+						
+						<!-- Credit card information -->
+						<ccType>
+							<isMandatory>true</isMandatory>
+						</ccType>
+						<ccNum>
+							<isMandatory>true</isMandatory>
+							
+							<!-- *******************************************************************
+							     a much better pattern for credit cards is described at 
+								 http://www.regular-expressions.info/creditcard.html 
+								 
+								 I don't use it here because I don't want to encourage
+								 people putting in their real credit cards in this
+								 test. :-)
+							     ******************************************************************-->
+							<pattern>^\d{16}$</pattern>
+							<unmatchError>The credit card you entered is not valid.</unmatchError>
+						</ccNum>
+						<ccExp>
+							<isMandatory>true</isMandatory>
+							<pattern>^(0[1-9]|1[1-2])/\d{2}$</pattern>
+							<unmatchError>The expiry date must be in the form yy/mm.</unmatchError>
+						</ccExp>
+					</inputs>
+				</creditCardForm>
+			</formValidator>
+		</config>
+ 

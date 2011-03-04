@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=iso-8859-1">
+        <link href="css/global.css" type="text/css" rel=
+        "stylesheet" media="all">
+
+        <title>Config test</title>
+
+        <title></title>
+<script type="text/javascript" src="js/EventHelpers.js">
+</script>
+<script type="text/javascript" src="js/config.js">
+</script>
+<script type="text/javascript" src="js/formValidator.js">
+</script>
+    </head>
+
+    <body>
+        <h1>Config.js example: Form Validation</h1>
+
+        <p>This page is the same as <a href=
+        "creditCardForm.html">the form validation example</a>,
+        except it uses an external XML file to configure the
+        <code>exampleConfigForm.js</code> JavaScript. Both scripts
+        use the same version of exampleConfigForm.js. You can <a
+        href=
+        "/viewsource.cgi/tests/config/js/formValidator.js">take a
+        look at the script</a> to see how it works, <a href=
+        "/viewsource.cgi/tests/config/creditCardFormOutsideConfig.html">
+        view the source of this document</a> to see how the
+        configuration XML is referenced at the end of the page, and
+        <a href="/viewsource.cgi/tests/config/test.xml">see the
+        external XML file</a>. (Note that the external XML file
+        uses XML comments, while the internal example uses JSP
+        style comments).</p>
+
+        <p><strong>Note:</strong> do <em>not</em> put it in a real
+        credit card number in to this form.</p>
+
+        <div id="messages">
+        </div>
+
+        <form id="creditCardForm">
+            <fieldset>
+                <legend>Mailing Information</legend> 
+
+                <table class="formTable">
+                    <tbody>
+                        <tr>
+                            <th>Name :</th>
+
+                            <td><input type="text" name=
+                            "name"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Address :</th>
+
+                            <td><input type="text" name=
+                            "address"></td>
+                        </tr>
+
+                        <tr>
+                            <th>City :</th>
+
+                            <td><input type="text" name=
+                            "city"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Province :</th>
+
+                            <td><select name="province">
+                                <option value="">
+                                    Choose one...
+                                </option>
+
+                                <option value="ON">
+                                    Ontario
+                                </option>
+                            </select> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Postal Code :</th>
+
+                            <td><input type="text" name=
+                            "postalCode"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Billing Information</legend> 
+
+                <table class="formTable">
+                    <tbody>
+                        <tr>
+                            <th>Credit Card Type :</th>
+
+                            <td><select name="ccType">
+                                <option value="">
+                                    Select one ...
+                                </option>
+
+                                <option value="Visa">
+                                    VISA
+                                </option>
+                            </select> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Credit Card Number :</th>
+
+                            <td>
+                                <input type="text" name="ccNum"> 
+
+                                <div class="fieldDescription">
+                                    <strong>Note:</strong> Do not
+                                    put in your real credit card
+                                    number. This is
+                                    <strong>just</strong> an
+                                    example. Please put in any 16
+                                    digit number.
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Credit Card Expiry :</th>
+
+                            <td><input type="text" name=
+                            "ccExp"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <div class="buttonRow">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+		
+		<div id="config">
+        <!--
+        xml=xml/config.xml
+        -->
+        </div>
+    </body>
+</html>
+

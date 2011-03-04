@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <meta http-equiv="Content-Type" content= "text/html; charset=iso-8859-1">
+        <link href="css/global.css" type="text/css" rel="stylesheet" />
+        <title>Config example</title>
+        <script type="text/javascript" src= "js/EventHelpers.js">
+        </script>
+        <script type="text/javascript" src="js/config.js">
+        </script>
+        <script type="text/javascript" src="js/exampleConfigForm.js">
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Config Example</h1>
+            <div id="message">
+            </div>
+            <p>
+                This page shows how the config.js library works. 
+                You can take a <a href="/viewSource.cgi/tests/config/js/exampleConfigForm.js">look at 
+                    the source of the script</a>
+                as well as <a href="#" onclick="alert(document.getElementById('config').innerHTML); return false;">look 
+                    at the configuration
+                    XML</a>
+                to get an idea how it works. 
+            </p>
+            <form id="myApp-form">
+                <fieldset>
+                    <legend>
+                        Charge Information
+                    </legend>
+                    <table class="formTable">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Your charge :
+                                </th>
+                                <td>
+                                    $<span id="amount">50.00</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Credit Card :
+                                </th>
+                                <td>
+                                    <select id="ccType">
+                                    	<option value="">--- Chose a card ---</option>
+                                        <option value="Canadiana Card ">Canadiana Card</option>
+                                        <option value="Mistress Card">Mistress Card</option>
+                                        <option value="Passport">Passport</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Month:
+                                </th>
+                                <td>
+                                    <select id="month">
+                                        <option value="">--- Choose a month ---</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <div class="buttonRow">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <div id="config">
+            <!--
+	            <config>
+	              <myApp>
+		            <confirmCharge>
+			            <text>
+Submitting this order will charge $@amount@  to your
+@creditCardType@ and will be received on your @month@
+credit card bill.  Are you sure you want to do this?
+			            </text>
+		            	<url>confirm.html</url>
+		            </confirmCharge>
+					<templates>
+						<browserWarning><![CDATA[
+	    					<div class="warning">
+	    					At the end of this year, we will <strong>not</strong> be supporting Internet
+	    					Explorer 6 or lower.  Please 
+							<a href="http://www.microsoft.com/windows/Internet-explorer/default.aspx">upgrade your
+	    					installation of Internet Explorer</a>, or install the latest version of one
+	    					<a href="http://reviews.cnet.com/1990-3513_7-5142616-1.html">the many 
+							alternative browsers available</a>.
+	    					</div>
+	  					]]></browserWarning>
+					</templates>
+					<errors>
+					   <completeForm>You must enter in a credit card type and a month to continue</completeForm>
+					</errors>
+	              </myApp>
+	            </config>
+             -->
+            </div>
+            </body>
+        </html>

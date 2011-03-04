@@ -1,0 +1,52 @@
+body {
+	font-family: "Arial", "Helvetica", sans-serif;
+}
+
+div#errorMessage {
+	border: solid 2px black;
+	width: 30em;
+	height: 4.5em;
+	margin: 1em auto;
+	padding-left: 70px;
+	background: url(../images/icons/error.png) 10px 15px no-repeat
+}
+
+.fieldMessage {
+	color: red;	
+}
+
+.fieldDescription {
+	color: #999999;
+}
+
+.fieldMessage, .fieldDescription {
+	font-size: 0.8em;
+	padding-left: 0;
+	margin-bottom: 1.2em;
+}
+
+table.formTable {
+	
+	margin: 0 auto;
+}
+
+table.formTable tbody th {
+	vertical-align: top;
+	text-align: right;
+	width: 11em;
+}
+
+table.formTable tbody td {
+	width: 18em;
+}
+
+table.formTable tbody td input,
+table.formTable tbody td select {
+	width: 20em;
+}
+
+
+.buttonRow {
+	margin-top: 1em;
+	text-align: center;
+}
