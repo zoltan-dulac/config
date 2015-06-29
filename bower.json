@@ -1,0 +1,21 @@
+{
+  "name": "config",
+  "version": "2.1.0",
+  "homepage": "http://www.useragentman.com/blog/config-js-%E2%80%93-a-javascript-cofiguration-library/",
+  "authors": [
+    "Zoltan Hawryluk <zoltan.dulac@gmail.com>"
+  ],
+  "description": "Config.js allows developers to configure their applications in an XML block instead of hard-coding values inside their scripts or in JSON objects.  The XML can be embedded inside an HTML document or in a separate XML file.  The configuration block may contain strings, numbers, arrays and HTML. Furthermore, variables can be inserted into these values, allowing developers to use the XML block as a simple templating system for their applications.",
+  "main": "js/config.js",
+  "keywords": [
+    "config"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
