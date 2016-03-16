@@ -619,4 +619,4 @@ function Config(dataIslandId) {
 }
 
 var config = new Config('config');
-config.init();
+EventHelpers.addPageLoadEvent("config.init");
