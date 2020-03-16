@@ -1,5 +1,5 @@
 {
-  "name": "config",
+  "name": "configJS",
   "version": "2.1.0",
   "description": "Config.js allows developers to configure their applications in an XML block instead of hard-coding values inside their scripts. It can also be used to store HTML templates instead of hardcoding HTML into JavaScript. The XML can be embedded inside an HTML document or in a separate XML file.",
   "main": "index.js",
