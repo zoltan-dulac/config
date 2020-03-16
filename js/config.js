@@ -43,7 +43,6 @@ function Config(dataIslandId) {
     function content(tag, removeMultispaces) {
         var r = "";
         if (tag && tag.firstChild && tag.firstChild.nodeValue) {
-            //jslog.debug(tag.firstChild.nodeValue);
             r = tag.firstChild.nodeValue;
         }
 
@@ -258,7 +257,7 @@ function Config(dataIslandId) {
             //alert('no config macros');
             return;
         }
-        //jslog.debug("config.js: Start  indexing.")
+
         for (var i = 0; i < tags.length; i++) {
             var theTag = tags[i];
 
@@ -276,7 +275,6 @@ function Config(dataIslandId) {
                     setValue((prefix + '.' + tagName), getArrayValues(theTag));
 
                 } else if (childNodes.length == 0) {
-                    // console.log('setting', (prefix + '.' + tagName), content(theTag, removeMultispaces));
                     setValue((prefix + '.' + tagName), content(theTag, removeMultispaces));
                 } else {
                     if (prefix == '') {
@@ -292,11 +290,9 @@ function Config(dataIslandId) {
 
 
     me.addLoadEvent = function (func) {
-        console.log('x', func);
         funcArray.push(func);
     }
     function loadEventHandler() {
-        console.log('funcarray', funcArray);
         for (var i = 0; i < funcArray.length; i++) {
             funcArray[i]();
         }
