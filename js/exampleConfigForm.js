@@ -47,5 +47,4 @@ var exampleConfigForm = new function(){
         EventHelpers.addEvent(submitForm, 'submit', submitFormEvent);
     }
 }
-
-config.addLoadEvent(exampleConfigForm.init);
+exampleConfigForm.init();

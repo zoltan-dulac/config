@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Remember ... you must not have any spaces between the tag and the <![CDATA[
+-->
+<config>
+  <componentDir>src/js/components/@JS_CLASSNAME@</componentDir>
+  <js><![CDATA[
+import React from 'react';
+import './style.scss';
+
+class @JS_CLASSNAME@ extends React.Component {
+  constructor() {
+    super();
+    this.classRoot = '@CSS_CLASSNAME@';
+  }
+
+  render() {
+    return (
+      <div></div>
+    );
+  }
+}
+
+export default @JS_CLASSNAME@;
+]]></js>
+  <scss><![CDATA[
+@import 'config';
+
+.@CSS_CLASSNAME@ {
+}
+]]></scss>
+  <loader><![CDATA[
+/* eslint-disable no-console */
+
+const @JS_CLASSNAME@Loader = (element, props) => {
+  return new Promise((resolve, reject) =>
+    require.ensure([], (require) => {
+      const @JS_CLASSNAME@ = require('./index').default;
+      const renderReactComponent = require('utils/reactComponentLoader').default;
+      let returnPromise;
+      if (typeof element !== 'undefined' && typeof props !== 'undefined') {
+        if (!element.hasAttribute('data-has-dynamically-rendered')) {
+          // only try to render it once
+          element.setAttribute('data-has-dynamically-rendered', '');
+
+          // if (!props.hasOwnProperty('children')) {
+          if (!Object.prototype.hasOwnProperty.call(props, 'children')) {
+            props.children = element.getAttribute('title') || element.getAttribute('data-title');
+
+            element.removeAttribute('title');
+          }
+
+          returnPromise = renderReactComponent(@JS_CLASSNAME@, element, props)
+            .then(resolve)
+            .catch(reject);
+        } else {
+          returnPromise = resolve();
+        }
+      } else {
+        returnPromise = resolve(@JS_CLASSNAME@);
+      }
+      return returnPromise;
+    }, 'LazyLoadingDemo')
+  ).catch((err) => {
+    console.log(err);
+  });
+};
+
+export default @JS_CLASSNAME@Loader;
+]]></loader>
+</config>
