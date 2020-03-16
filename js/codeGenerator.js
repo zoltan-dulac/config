@@ -1,3 +1,11 @@
+/********************************************************************
+ * 
+ * condeGenerator.js is an example node application that uses
+ * config.js to generate skeleton code for a multi-component
+ * application.
+ * 
+ ********************************************************************/
+
 const myArgs = process.argv.slice(2);
 const command = process.argv[1];
 
@@ -6,6 +14,8 @@ const fs = require('fs');
 
 const path = require('path');
 
+// Creates all the directories in the path targetDir.
+// From https://stackoverflow.com/questions/31645738/how-to-create-full-path-with-nodes-fs-mkdirsync 
 function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
   const sep = path.sep;
   const initDir = path.isAbsolute(targetDir) ? sep : '';
@@ -54,8 +64,6 @@ const macros = {
 
 const componentDir = config.getScriptedValue(".componentDir", macros);
 
-// console.log(config.getScriptedValue('.scss', macros));
-
 
 // First ... create the component directory if it doesn't exist
 if (fs.existsSync(componentDir)) {
@@ -66,6 +74,8 @@ if (fs.existsSync(componentDir)) {
 
 mkDirByPathSync(componentDir);
 
+
+// Next, write the js, loader and scss files from the xml template.
 fs.writeFile(`${componentDir}/index.js`, config.getScriptedValue('.js', macros), function (err) {
   if (err) throw err;
   console.log('index.js saved.');
