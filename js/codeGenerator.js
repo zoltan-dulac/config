@@ -9,7 +9,7 @@
 const myArgs = process.argv.slice(2);
 const command = process.argv[1];
 
-const Config = require('./config.js');
+const Config = require('../index.js');
 const fs = require('fs');
 
 const path = require('path');

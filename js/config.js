@@ -5,8 +5,6 @@
  */
 var config;
 
-console.log((window && window.DOMParser))
-
 function Config(dataIslandId) {
 
     /*
