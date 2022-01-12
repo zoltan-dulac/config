@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/zoltan-dulac/config#readme",
   "dependencies": {
-    "xmldom": "^0.3.0"
+    "xmldom": "^0.6.0"
   }
 }
