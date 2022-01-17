@@ -3,7 +3,7 @@
   Remember ... you must not have any spaces between the tag and the <![CDATA[
 -->
 <config>
-  <componentDir>src/js/components/@JS_CLASSNAME@</componentDir>
+  <componentDir>tests/@JS_CLASSNAME@</componentDir>
   <js><![CDATA[
 import React from 'react';
 import './style.scss';

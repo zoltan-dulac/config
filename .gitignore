@@ -4,4 +4,6 @@ css/*
 images/*
 node_modules
 src/js/components
+test/
+tests/
 
