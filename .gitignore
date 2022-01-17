@@ -2,3 +2,5 @@
 *.html
 css/*
 images/*
+node_modules
+

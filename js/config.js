@@ -34,7 +34,7 @@ function Config(dataIslandId) {
     if (me.isClientSide) {
         me.DOMParser = window && window.DOMParser;
     } else {
-        me.DOMParser = require('xmldom').DOMParser;
+        me.DOMParser = require('@xmldom/xmldom').DOMParser;
     }
 
     me.getXML = function () {
